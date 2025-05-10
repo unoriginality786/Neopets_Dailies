@@ -7,12 +7,19 @@
 <link rel="icon" href="https://images.neopets.com/faeriefragments/images/match-3/Rectangle%20(18).png" type="image/x-icon">
 
   <style type="text/css">
-body {
-  font-family: 'Heffaklump';
-  font-size: 16pt;
-  font-style: normal;
-  font-weight: 400;
-}
+
+            @font-face {
+            font-family: 'Heffaklump';
+            src: url('fonts/Heffaklump.woff2') format('woff2'),
+                 url('fonts/Heffaklump.woff') format('woff');
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        body {
+            font-family: 'Heffaklump', sans-serif;
+            font-size: 16pt;
+        }
 
 .center-wrapper {
   text-align: center;
