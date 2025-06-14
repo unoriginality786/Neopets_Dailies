@@ -5,7 +5,44 @@
   <title>Neopets Dailies</title>
   <link rel="icon" href="https://images.neopets.com/faeriefragments/images/match-3/Rectangle%20(18).png" type="image/x-icon">
   <link rel="stylesheet" href="style.css">
+
+  <style>
+    a:link,
+    a:visited {
+      color: blue;
+      text-decoration: underline;
+    }
+  </style>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      // Make links open in new tab/window
+      document.querySelectorAll('a').forEach(link => {
+        link.setAttribute('target', '_blank');
+      });
+
+      // Align all paragraphs to center
+      document.querySelectorAll('p').forEach(p => {
+        p.setAttribute('align', 'center');
+      });
+
+      // Simulate links being unvisited daily
+      const californiaNow = new Date(
+        new Date().toLocaleString("en-US", { timeZone: "America/Los_Angeles" })
+      );
+      const dateKey = californiaNow.toISOString().split('T')[0];
+
+      const lastVisit = localStorage.getItem('linkResetDate');
+      if (lastVisit !== dateKey) {
+        localStorage.setItem('linkResetDate', dateKey);
+        document.querySelectorAll('a').forEach(link => {
+          link.classList.add('reset-link');
+        });
+      }
+    });
+  </script>
 </head>
+
 <body>
 
 <h1 align="center"><strong>Quick Access</strong></h1>
@@ -111,35 +148,6 @@
 <td><p><a href="https://www.neopets.com/games/crossword/index.phtml"><img src="https://images.neopets.com/games/clicktoplay/icon_27.gif"/><br>Faerie Crossword</a> </p></td>
 </tr>
 </table>
-
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  // Make links open in new tab/window
-  document.querySelectorAll('a').forEach(link => {
-    link.setAttribute('target', '_blank');
-  });
-
-  // Align all paragraphs to center
-  document.querySelectorAll('p').forEach(p => {
-    p.setAttribute('align', 'center');
-  });
-
-  // Make links appear unclicked at Midnight NST
-  const californiaNow = new Date(
-    new Date().toLocaleString("en-US", { timeZone: "America/Los_Angeles" })
-  );
-  const dateKey = californiaNow.toISOString().split('T')[0];
-
-  const lastVisit = localStorage.getItem('linkResetDate');
-  if (lastVisit !== dateKey) {
-    localStorage.setItem('linkResetDate', dateKey);
-    document.querySelectorAll('a').forEach(link => {
-      const clone = link.cloneNode(true);
-      link.parentNode.replaceChild(clone, link);
-    });
-  }
-});
-</script>
 
 </body>
 </html>
