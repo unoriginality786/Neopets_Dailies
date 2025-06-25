@@ -6,49 +6,59 @@
   <link rel="icon" href="https://images.neopets.com/faeriefragments/images/match-3/Rectangle%20(18).png" type="image/x-icon">
   <link rel="stylesheet" href="style.css">
 
-  <style>
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 10px;
-    }
-    table, th, td {
-      border: 1px solid #ccc;
-    }
-  </style>
+<style>
+  table {
+    display: none; /* hide all tables initially */
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+  }
 
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      // Make links open in new tab/window
-      document.querySelectorAll('a').forEach(link => {
-        link.setAttribute('target', '_blank');
-      });
+  table, th, td {
+    border: 1px solid #ccc;
+  }
 
-      // Align all paragraphs to center
-      document.querySelectorAll('p').forEach(p => {
-        p.setAttribute('align', 'center');
-      });
+  h1 {
+    cursor: pointer;
+    font-family: sans-serif;
+    margin: 20px 0 10px;
+  }
+</style>
 
-      // Acordian Function
-    function toggleTable(tableId) {
-      const tables = document.querySelectorAll("table[id^='table']");
+<script>
+  // Accordion function
+  function toggleTable(tableId) {
+    const tables = document.querySelectorAll("table");
 
-      tables.forEach((table) => {
-        if (table.id === tableId) {
-          table.style.display = (table.style.display === "none" || table.style.display === "") ? "table" : "none";
-        } else {
-          table.style.display = "none";
-        }
-      });
-    }
-  </script>
+    tables.forEach((table) => {
+      if (table.id === tableId) {
+        table.style.display = (table.style.display === "none" || table.style.display === "") ? "table" : "none";
+      } else {
+        table.style.display = "none";
+      }
+    });
+  }
+
+  // Make all links open in a new tab
+  document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll('a').forEach(link => {
+      link.setAttribute('target', '_blank');
+    });
+
+  // Center Paragraphs
+    document.querySelectorAll('p').forEach(p => {
+      p.setAttribute('align', 'center');
+    });
+  });
+</script>
+
 </head>
 
 <body>
 
 <h1 onclick="toggleTable('Quick')" align="center"><strong>Quick Access</strong></h1>
 
-<table id="Quick" align="center">
+<table id="Quick" align="center" style="display: table;">
 <tr>
 <td><p><a href="https://account.neopets.com/classic/login"><img src="https://images.neopets.com/dungdash/images/dungdash_preview.png"><br>Switch Devices</a></p></td>
 <td><p><a href="http://neopets.com/quickref.phtml"> <img src="https://images.neopets.com/petpetpark/grid/p6_intro_eb24668ce1.png"> <br>Switch Pets</a></p></td>
