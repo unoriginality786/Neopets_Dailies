@@ -19,7 +19,7 @@ body {
     position: relative;
     padding: 16px 24px;
     border-radius: 16px;
-    background: LightGray;
+    background: white;
     z-index: 0;
     display: inline-block;
     box-sizing: border-box;
