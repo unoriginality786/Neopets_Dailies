@@ -11,7 +11,7 @@
   <script>
     const container = document.getElementById('reddit-results');
 
-    fetch('https://www.reddit.com/r/neopets/search.json?q=food+club&type=link&sort=new&limit=100')
+    fetch('https://www.reddit.com/r/neopets/search.json?q=food+club&type=link&sort=new&limit=10')
       .then(response => response.json())
       .then(data => {
         const posts = data.data.children;
