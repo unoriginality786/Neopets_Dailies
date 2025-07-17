@@ -4,8 +4,6 @@ fetch('https://www.reddit.com/r/neopets/search.json?q=food+club&type=link&sort=n
   .then(response => response.json())
   .then(data => {
     const posts = data.data.children;
-
-    // Filter for titles that start with "Food Club Bets"
     const filteredPosts = posts.filter(post =>
       post.data.title.startsWith("Food Club Bets")
     );
@@ -17,10 +15,13 @@ fetch('https://www.reddit.com/r/neopets/search.json?q=food+club&type=link&sort=n
 
     const list = document.createElement('ul');
     filteredPosts.forEach(post => {
+      const title = post.data.title;
+      const cleanedTitle = title.replace(/^Food Club Bets\s*-\s*/i, '').trim();
+
       const item = document.createElement('li');
       const a = document.createElement('a');
       a.href = 'https://www.reddit.com' + post.data.permalink;
-      a.textContent = post.data.title;
+      a.textContent = cleanedTitle;
       a.target = '_blank';
       item.appendChild(a);
       list.appendChild(item);
