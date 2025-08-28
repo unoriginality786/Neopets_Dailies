@@ -7,9 +7,7 @@
         table.style.display = (table.style.display === "none" || table.style.display === "") ? "table" : "none";
       } else {
         table.style.display = "none";
-      }
-    });
-  }
+      }});}
 
   // Make all links open in a new tab
   document.addEventListener("DOMContentLoaded", function () {
@@ -20,5 +18,15 @@
   // Center Paragraphs
     document.querySelectorAll('p').forEach(p => {
       p.setAttribute('align', 'center');
-    });
-  });
+    });});
+
+  // Set even width for all table cells
+  document.querySelectorAll("table").forEach(table => {
+    const firstRow = table.querySelector("tr");
+    if (firstRow) {
+      const cellCount = firstRow.querySelectorAll("td").length;
+      if (cellCount > 0) {
+        const evenWidth = (100 / cellCount) + "%";
+        table.querySelectorAll("td").forEach(td => {
+          td.style.width = evenWidth;
+        });}}});
