@@ -1,15 +1,12 @@
   // Accordion function
 function toggleTable(tableId) {
-  const tables = document.querySelectorAll(".accordion-content");
-
+  const tables = document.querySelectorAll(".table-wrapper");
   tables.forEach((table) => {
     if (table.id === tableId) {
       table.classList.toggle("active");
     } else {
       table.classList.remove("active");
-    }
-  });
-}
+    }});}
 
   // Make all links open in a new tab
   document.addEventListener("DOMContentLoaded", function () {
