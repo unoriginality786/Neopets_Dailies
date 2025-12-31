@@ -75,12 +75,12 @@ img {
     height: 80px;
 }
 
-  table {
-    display: none; /* hide all tables initially */
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 10px;
-  }
+table {
+  display: table;
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
 
   table, th, td {
     border: 1px solid #ccc;
